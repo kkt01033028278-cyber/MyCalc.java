@@ -66,6 +66,11 @@ public class MyCalc extends JFrame {
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("about");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getAboutDiglog().setVisible(true);
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_1);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -239,10 +244,31 @@ public class MyCalc extends JFrame {
 			}
 		});
 		panel_2.add(btnNewButton_15);
+		
+		JButton button = new JButton("(");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				exp = exp + "(";
+				textField.setText(exp);
+			}
+		});
+		panel_2.add(button);
+		
+		JButton btnNewButton_16 = new JButton(")");
+		btnNewButton_16.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				exp = exp + ")";
+				textField.setText(exp);
+			}
+		});
+		panel_2.add(btnNewButton_16);
 
 	}
 
 	public JTextField getTextField() {
 		return textField;
+	}
+	public AboutDialog getAboutDialog() {
+		return aboutDialog;
 	}
 }
